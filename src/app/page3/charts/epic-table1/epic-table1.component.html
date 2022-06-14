@@ -1,0 +1,64 @@
+<div class="row mt-5">
+    <div class="col">
+      <div class="card bg-light shadow">
+        <div class="row align-items-center">
+        <div class="card-header bg-transparent border-2 col-md-4 text-right">
+          <h3 class="text-black mb-0">Epic Composition</h3>
+        </div>
+        <div class="form-group col-md-4 pt-4">
+          <input type="text" class="form-control"  placeholder="Enter Keyword for filter result" [(ngModel)]="searchedKeyword">
+        </div>
+      </div>
+        <div class="table-responsive">
+          <table class="table align-items-center table-light table-flush">
+            <thead class="thead-light">
+              <tr>
+                <th scope="col">Title</th>
+                <th scope="col">Feature</th>
+                <th scope="col">Task</th>
+                <th scope="col">User_Stroy</th>
+                <th scope="col">Documentation</th>
+                <th scope="col">Bug</th>
+                <th scope="col">Test</th>
+
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let item of data | filter:searchedKeyword | paginate: config">
+                <th scope="row">
+                  <a>{{item._id}}</a>
+                </th>
+                <td class="col-md-2">
+                    {{task("Feature",item.labelss)}} 
+                </td>
+                <td class="col-md-2">
+                    {{task("Task",item.labelss)}} 
+                  
+                </td>
+                <td class="col-md-2">
+                    {{task("USER_STROY",item.labelss)}} 
+                </td>
+                <td class="col-md-2">
+                    {{task("DOCUMENTATION",item.labelss)}} 
+                                    
+                </td>
+                <td class="col-md-2">
+                    {{task("BUG",item.labelss)}} 
+                                      
+                  </td>
+                  <td class="col-md-2">
+                    {{task("TEST",item.labelss)}} 
+                                      
+                  </td>
+             
+            
+              </tr>
+              
+            </tbody>
+          </table>
+          <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+        </div>
+      </div>
+    </div>
+  </div>
+

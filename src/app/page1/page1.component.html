@@ -1,0 +1,51 @@
+
+ <!-- Card stats -->
+ <app-cards></app-cards>
+
+<div class="container-fluid mt--7">
+  <div class="row">
+    <div class="col-xl-7 mb-5 mb-xl-0">
+    <app-state></app-state>
+  </div>
+    <div class="col-xl-5">
+      <div class="card shadow">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1"></h6>
+              <h2 class="mb-0">Project Labels</h2>
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <!-- Chart -->
+          <div class="chart">
+            <app-action-type-pie></app-action-type-pie>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+      
+      <div class="card bg-light shadow">
+        <div class="card-header bg-transparent">
+          <div class="row align-items-center">
+            <div class="col">
+              <h6 class="text-uppercase text-muted ls-1 mb-1">size/logged</h6>
+              <h2 class="mb-0">Epic's life cycle</h2>
+            </div>
+          </div>
+        </div>
+        <app-column-chart></app-column-chart>
+      </div>
+    </div>
+  </div>
+  <div class="row mt-5">
+    <div class="col">
+     <app-table></app-table>
+    </div>
+    
+  </div>
+</div>

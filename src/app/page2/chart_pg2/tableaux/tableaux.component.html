@@ -1,0 +1,63 @@
+<div class="row mt-5 ">
+  <div class="col ">
+    <div class="card shadow">
+      <div class="card-header border-0">
+          <div class="row align-items-center">
+      <div class="col-md-4 text-right">
+          <b>Issues Informations and Costs</b>
+        </div>
+        <div class="form-group col-md-4">
+          <input type="text" class="form-control"  placeholder="Enter Keyword for filter result" [(ngModel)]="searchedKeyword">
+        </div>
+          </div>
+
+      <div class="table-responsive">
+        <table class="table align-items-center  table-flush">
+          <thead class="">
+            <tr>
+              <th scope="col">Title</th>
+              <th scope="col">Budget</th>
+              <th scope="col">Status</th>
+              <th scope="col">Users</th>
+              <th scope="col">Size</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let item of data| filter:searchedKeyword | paginate: config">
+              <th scope="row">
+                <a>{{item.issue[0].title}}</a>
+              </th>
+              <td>
+                  ${{item.value * 4.5}} TND
+              </td>
+              <td>
+                <span class="badge badge-dot mr-4">
+                  <i class="bg-warning"></i> {{item.project_card[0].card_name}}
+                </span>
+              </td>
+              <td>
+                  <a>{{extraction(item.assignees)}}</a>
+              </td>
+              <td>
+                <div class="d-flex align-items-center">
+                  <span class="mr-2">{{item.value}} Hour </span>
+                  <div>
+                    <div class="progress">
+                      <div class="progress-bar bg-warning" role="progressbar" aria-valuenow="" aria-valuemin="0" aria-valuemax="100" style="width: {{caluclePercentage(item.value) }}%"></div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+          
+            </tr>
+            
+          </tbody>
+        </table>
+        <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  
+      </div>
+    </div>
+  </div>
+</div>
+
